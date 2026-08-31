@@ -40,6 +40,7 @@
   --ouro:#8A6E3F;               /* réguas e ícones (cartão digital) */
   --acento-txt:#A8431B;         /* cobre legível sobre papel */
   --realce:rgba(184,76,32,.10);
+  --mapa-terra:#E6D7D1;         /* estados sem unidade — precisa destacar do fundo */
 
   --sombra:0 2px 4px rgba(36,28,24,.05), 0 12px 32px -12px rgba(36,28,24,.16);
   --sombra-alta:0 4px 8px rgba(36,28,24,.06), 0 28px 56px -20px rgba(36,28,24,.26);
@@ -73,6 +74,7 @@
     --ouro:#B08A50;
     --acento-txt:#EC7C51;
     --realce:rgba(246,176,116,.10);
+    --mapa-terra:#2C211B;
     --sombra:0 2px 4px rgba(0,0,0,.4), 0 12px 32px -12px rgba(0,0,0,.7);
     --sombra-alta:0 4px 8px rgba(0,0,0,.45), 0 28px 56px -20px rgba(0,0,0,.8);
     --breu:#080605;
@@ -92,6 +94,7 @@
   --ouro:#B08A50;
   --acento-txt:#EC7C51;
   --realce:rgba(246,176,116,.10);
+  --mapa-terra:#2C211B;
   --sombra:0 2px 4px rgba(0,0,0,.4), 0 12px 32px -12px rgba(0,0,0,.7);
   --sombra-alta:0 4px 8px rgba(0,0,0,.45), 0 28px 56px -20px rgba(0,0,0,.8);
   --breu:#080605;
@@ -366,14 +369,19 @@ section[id]{scroll-margin-top:78px}
 .val p{font-size:.86rem;color:var(--tinta-suave);line-height:1.58}
 
 /* ---------- atuação / unidades ---------- */
-.atu{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(36px,6vw,80px);align-items:center}
+.atu{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,5vw,64px);align-items:center}
 @media (max-width:900px){.atu{grid-template-columns:1fr}}
-.mapa{width:100%;max-width:440px;margin-inline:auto;height:auto;overflow:visible}
-.mapa .terra{fill:var(--cobre);opacity:.9}
-.mapa .pin{fill:var(--tinta)}
-.mapa .pin-halo{fill:var(--cobre);opacity:.18}
-.mapa .guia{stroke:var(--cobre);stroke-width:3;fill:none;opacity:.55}
-.mapa .pin-txt{fill:var(--tinta);font-family:inherit;font-size:46px;font-weight:800;letter-spacing:.06em}
+/* mapa: divisas estaduais reais (IBGE) geradas por tools/gen-mapa.py.
+   Estados e pinos passam pela mesma projeção, então as posições batem. */
+.mapa{width:100%;max-width:520px;margin-inline:auto;height:auto;overflow:visible}
+.mapa .uf{fill:var(--mapa-terra);stroke:var(--papel);stroke-width:2.4;stroke-linejoin:round}
+.mapa .uf--ativa{fill:var(--cobre)}
+.mapa .uf-sigla{fill:#fff;font-family:inherit;font-size:34px;font-weight:800;
+  letter-spacing:.06em;text-anchor:middle;dominant-baseline:central}
+.mapa .uf-sigla--fora{fill:var(--tinta);text-anchor:start}
+.mapa .guia{stroke:var(--cobre);stroke-width:2.4;fill:none}
+.mapa .pino__anel{fill:#fff}
+.mapa .pino__ponto{fill:#1D1D1B}
 .unids{display:grid;gap:1px;background:var(--linha);border-block:1px solid var(--linha)}
 .unid{background:var(--papel);padding:24px 0;display:grid;grid-template-columns:auto 1fr;
   gap:6px 20px;align-items:start}

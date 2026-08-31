@@ -39,30 +39,12 @@ def logo_svg(extra=""):
 
 LOGO_TOPO, LOGO_ROD = logo_svg(), logo_svg("logo--claro")
 
-br = open(os.path.join(SITE, "assets", "brasil.svg"), encoding="utf-8").read()
-brvb = re.search(r'viewBox="([^"]+)"', br).group(1)
-brpath = re.search(r'\sd="([^"]+)"', br).group(1)
-
 # ---------------------------------------------------------------- mapa
-# x/y convertidos de lat/lon para o viewBox da silhueta extraída da apresentação.
-# As três unidades ficam muito próximas no Sudeste, então cada pino recebe
-# uma linha-guia até um rótulo afastado, senão os textos se sobrepõem.
-UNID = [  # uf, x, y, x rótulo, y rótulo, âncora, nome
-    ("MG", 696, 692, 600, 618, "end",   "Guaxupé · Minas Gerais"),
-    ("SP", 691, 749, 556, 838, "end",   "Barueri · São Paulo (matriz)"),
-    ("RJ", 785, 733, 898, 806, "start", "Centro · Rio de Janeiro"),
-]
-pins = "".join(
-    f'<g><title>{nome}</title>'
-    f'<path class="guia" d="M{x} {y}L{lx + (14 if anc == "end" else -14)} {ly - 12}"/>'
-    f'<circle class="pin-halo" cx="{x}" cy="{y}" r="27"/>'
-    f'<circle class="pin" cx="{x}" cy="{y}" r="11"/>'
-    f'<text class="pin-txt" x="{lx}" y="{ly}" text-anchor="{anc}">{uf}</text>'
-    f'</g>'
-    for uf, x, y, lx, ly, anc, nome in UNID)
-MAPA = (f'<svg class="mapa" viewBox="{brvb}" role="img" '
-        f'aria-label="Mapa do Brasil com as unidades da Alumi em São Paulo, Rio de Janeiro e Minas Gerais">'
-        f'<path class="terra" d="{brpath}"/>{pins}</svg>')
+# assets/brasil.svg já vem pronto de tools/gen-mapa.py (divisas estaduais do
+# IBGE, destaques, siglas e pinos). Aqui só entra inline, para o CSS do
+# documento alcançar as classes — o que <use> não permitiria.
+MAPA = open(os.path.join(SITE, "assets", "brasil.svg"), encoding="utf-8").read().replace(
+    "<svg ", '<svg class="mapa" ', 1)
 
 # ---------------------------------------------------------------- produtos
 PRODUTOS = [

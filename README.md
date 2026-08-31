@@ -80,6 +80,29 @@ Abra `http://localhost:8000/tools/og.built.html` num viewport de **1200×630 com
 tela (2400×1260) e reduza para 1200×630 em JPEG de qualidade ~88. `tools/og.built.html` é gerado —
 edite `tools/og.html`.
 
+## Mapa do Brasil
+
+`assets/brasil.svg` traz as 27 unidades federativas com as divisas reais, os estados de SP, RJ e MG
+destacados e um pino em cada cidade onde a Alumi opera. É gerado por `tools/gen-mapa.py` a partir de
+um GeoJSON de limites estaduais derivado do IBGE:
+
+<https://raw.githubusercontent.com/giuliano-macedo/geodata-br-states/main/geojson/br_states.json>
+
+```bash
+curl -o br_states.json https://raw.githubusercontent.com/giuliano-macedo/geodata-br-states/main/geojson/br_states.json
+python tools/gen-mapa.py br_states.json
+python tools/build.py
+```
+
+O GeoJSON de origem (5,3 MB) não fica no repositório; o SVG resultante (30 KB) é versionado, então
+só é preciso rodar isso para mudar o desenho ou as unidades. Os estados e as coordenadas das cidades
+passam pela **mesma** projeção de Mercator dentro do script — é isso que garante que os pinos caiam
+no lugar certo. As unidades ficam em `UNIDADES`, no topo do arquivo; `TOLERANCIA` controla a
+simplificação (Douglas-Peucker) e, por consequência, o tamanho do SVG.
+
+Vale confirmar a licença da fonte do GeoJSON antes de um uso comercial mais amplo, caso atribuição
+seja uma exigência do seu lado.
+
 ### Preview do repositório no GitHub
 
 A página do repositório em `github.com` **não** lê a `og:image` do site: ela tem a própria
