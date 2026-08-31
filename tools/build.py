@@ -7,11 +7,23 @@ O template carrega o CSS e a estrutura das seções; este script injeta os SVGs
 inline (logotipo e mapa) e os blocos repetidos — produtos, capacidades,
 mercados, diferenciais, valores e setores de contato.
 """
-import os, re, base64, mimetypes
+import os, re, json, base64, mimetypes
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 TPL  = os.path.join(HERE, "index.template.html")
+
+# Endereço público do site. É a única fonte da URL absoluta usada em canonical,
+# og:url, og:image, twitter:image, JSON-LD, robots.txt e sitemap.xml.
+# Ao migrar para o domínio próprio, troque só esta linha e rode o build.
+SITE_URL = "https://guiofsaints.github.io/alumi-site"
+
+TITULO = "Alumi Metais — Insumos de cobre para a indústria"
+DESCRICAO = ("Vergalhão, fio trefilado, filamentos, cordas, barramentos, laminados, tubos e "
+             "sucata de cobre para fábricas, refrigeração, indústria automotiva e recicladores. "
+             "Metalurgia do cobre desde 2015, com atendimento em todo o Brasil.")
+DESC_SOCIAL = ("Especialistas em transformar o cobre em soluções de excelência. "
+               "Unidades em SP, RJ e MG, atendendo todo o Brasil.")
 
 # ---------------------------------------------------------------- vetores
 # NB: CSS do documento não alcança o conteúdo clonado por <use> (shadow tree),
@@ -152,9 +164,121 @@ SETORES = "\n".join(
         nome, "".join(f'<a href="mailto:{e}">{e}</a>' for e in mails))
     for nome, mails in SET)
 
+# ---------------------------------------------------------------- dados estruturados
+ENDERECOS = [
+    ("Matriz", "Av. Copacabana, 325 — Sala 501, 5º andar, Condomínio Montreal Plaza — Setor 02, "
+               "Dezoito do Forte Empresarial Alphaville", "Barueri", "SP", "06472-001"),
+    ("Filial", "Rua Alfândega, 100 — 4º andar, Centro", "Rio de Janeiro", "RJ", "20070-004"),
+    ("Filial", "Rua Antônio Abrahão Haddad, 61, Bairro Irmão Ricciardi", "Guaxupé", "MG", "37800-000"),
+]
+
+def postal(rua, cidade, uf, cep):
+    return {"@type": "PostalAddress", "streetAddress": rua, "addressLocality": cidade,
+            "addressRegion": uf, "postalCode": cep, "addressCountry": "BR"}
+
+ORG_ID = SITE_URL + "/#organizacao"
+JSONLD = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": ORG_ID,
+            "name": "Alumi Metais",
+            "legalName": "Alumi Condutores Elétricos Ltda",
+            "alternateName": "Alumi Condutores Elétricos",
+            "url": SITE_URL + "/",
+            "logo": SITE_URL + "/assets/logo.svg",
+            "image": SITE_URL + "/assets/og-image.jpg",
+            "description": DESCRICAO,
+            "slogan": "Entregando qualidade, inovação e excelência para sua empresa.",
+            "foundingDate": "2015-08-28",
+            "taxID": "25.231.623/0001-04",
+            "naics": "331420",
+            "telephone": "+55-11-2110-1974",
+            "email": "contato@alumicondutores.com.br",
+            "address": postal(*ENDERECOS[0][1:]),
+            "location": [
+                {"@type": "Place", "name": f"{nome} — {cidade}/{uf}",
+                 "address": postal(rua, cidade, uf, cep)}
+                for nome, rua, cidade, uf, cep in ENDERECOS
+            ],
+            "areaServed": {"@type": "Country", "name": "Brasil"},
+            "sameAs": ["https://instagram.com/alumimetais", "https://facebook.com/alumimetais"],
+            "contactPoint": [{
+                "@type": "ContactPoint", "contactType": "sales",
+                "telephone": "+55-11-2110-1974",
+                "email": "contato@alumicondutores.com.br",
+                "availableLanguage": ["pt-BR"],
+                "areaServed": "BR",
+            }],
+            "knowsAbout": ["Metalurgia do cobre", "Condutores elétricos", "Laminados de cobre",
+                           "Latão", "Bronze", "Sucata de cobre"],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Insumos de cobre, latão e bronze",
+                "itemListElement": [
+                    {"@type": "Offer", "itemOffered": {
+                        "@type": "Product", "name": alt, "description": spec,
+                        "image": f"{SITE_URL}/assets/img/{img}",
+                        "material": "Cobre", "brand": {"@id": ORG_ID}}}
+                    for nome, spec, img, alt in PRODUTOS
+                ],
+            },
+        },
+        {
+            "@type": "WebSite",
+            "@id": SITE_URL + "/#site",
+            "url": SITE_URL + "/",
+            "name": TITULO,
+            "description": DESCRICAO,
+            "inLanguage": "pt-BR",
+            "publisher": {"@id": ORG_ID},
+        },
+    ],
+}
+
+# ---------------------------------------------------------------- metadados do <head>
+def esc(s):
+    return (s.replace("&", "&amp;").replace('"', "&quot;")
+             .replace("<", "&lt;").replace(">", "&gt;"))
+
+META = f"""<title>{esc(TITULO)}</title>
+<meta name="description" content="{esc(DESCRICAO)}">
+<link rel="canonical" href="{SITE_URL}/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0B0908">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alumi Metais">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="{SITE_URL}/">
+<meta property="og:title" content="{esc(TITULO)}">
+<meta property="og:description" content="{esc(DESC_SOCIAL)}">
+<meta property="og:image" content="{SITE_URL}/assets/og-image.jpg">
+<meta property="og:image:secure_url" content="{SITE_URL}/assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo Alumi Metais sobre chapas de cobre, com a linha de produtos: vergalhão, fio trefilado, filamentos, cordas, barramentos, laminados, tubos e sucata moída.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(TITULO)}">
+<meta name="twitter:description" content="{esc(DESC_SOCIAL)}">
+<meta name="twitter:image" content="{SITE_URL}/assets/og-image.jpg">
+<meta name="twitter:image:alt" content="Logotipo Alumi Metais sobre chapas de cobre.">
+
+<script type="application/ld+json">
+{json.dumps(JSONLD, ensure_ascii=False, indent=2)}
+</script>"""
+
 # ---------------------------------------------------------------- montagem
 html = open(TPL, encoding="utf-8").read()
 for k, v in {
+    "{{META}}": META,
     "{{LOGO_TOPO}}": LOGO_TOPO, "{{LOGO_ROD}}": LOGO_ROD, "{{MAPA}}": MAPA,
     "{{PRODUTOS}}": CARDS, "{{OPCOES_PRODUTO}}": OPCOES, "{{CAPACIDADES}}": CAPACIDADES,
     "{{MERCADOS}}": MERCADOS, "{{DIFERENCIAIS}}": DIFERENCIAIS, "{{VALORES}}": VALORES,
@@ -180,7 +304,8 @@ def datauri(rel):
 
 for rel in sorted(set(re.findall(r'src="(assets/[^"]+)"', inl))):
     inl = inl.replace('src="%s"' % rel, 'src="%s"' % datauri(rel))
-inl = inl.replace('<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">', '')
+# ícones são caminhos relativos que não resolvem dentro do artifact
+inl = re.sub(r'<link rel="(?:apple-touch-)?icon"[^>]*>\s*', '', inl)
 # o artifact injeta seu próprio esqueleto <html>/<head>/<body>
 body = re.search(r'<head>(.*?)</head>.*?<body>(.*?)</body>', inl, re.S)
 frag = body.group(1).strip() + "\n" + body.group(2).strip()
@@ -190,3 +315,24 @@ frag = re.sub(r'<meta charset[^>]*>\s*|<meta name="viewport"[^>]*>\s*', '', frag
 frag = '<meta charset="utf-8">\n' + frag
 open(os.path.join(DIST, "index.html"), "w", encoding="utf-8").write(frag)
 print(f"dist/index.html  {len(frag.encode())/1024/1024:.2f} MB (auto-contido)")
+
+# ---------------------------------------------------------------- robots + sitemap
+open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8", newline="\n").write(
+    f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+
+open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8", newline="\n").write(
+    '<?xml version="1.0" encoding="UTF-8"?>\n'
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    f'  <url>\n    <loc>{SITE_URL}/</loc>\n'
+    '    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
+    '</urlset>\n')
+print("robots.txt + sitemap.xml")
+
+# ---------------------------------------------------------------- fonte da imagem social
+# og.html é o cartão 1200x630; o build só injeta o logotipo vetorial nele.
+# A captura em si é manual — ver README, "Imagem de compartilhamento".
+og = open(os.path.join(HERE, "og.html"), encoding="utf-8").read()
+assert "{{LOGO}}" in og, "placeholder {{LOGO}} ausente em tools/og.html"
+open(os.path.join(HERE, "og.built.html"), "w", encoding="utf-8").write(
+    og.replace("{{LOGO}}", logo_svg()))
+print("tools/og.built.html (fonte de assets/og-image.jpg)")

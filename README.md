@@ -19,13 +19,17 @@ Depois abra <http://localhost:8000>.
 ## Estrutura
 
 ```
-index.html            página completa (HTML + CSS + JS inline)
-assets/logo.svg       logotipo vetorial, extraído do PDF do manual da marca
-assets/brasil.svg     silhueta do Brasil, extraída da apresentação institucional
-assets/favicon.svg    o "A" chanfrado do logotipo
-assets/img/*.webp     fotografia de produto e ambientação (536 KB no total)
-tools/                gerador do index.html — veja abaixo
-vercel.json           configuração de deploy estático
+index.html                 página completa (HTML + CSS + JS inline)
+robots.txt, sitemap.xml    gerados pelo build
+assets/logo.svg            logotipo vetorial, extraído do PDF do manual da marca
+assets/brasil.svg          silhueta do Brasil, extraída da apresentação institucional
+assets/favicon.svg         o "A" chanfrado do logotipo
+assets/favicon-32.png      fallback PNG do favicon
+assets/apple-touch-icon.png  ícone 180×180 para iOS
+assets/og-image.jpg        cartão 1200×630 de compartilhamento
+assets/img/*.webp          fotografia de produto e ambientação (536 KB no total)
+tools/                     gerador do index.html — veja abaixo
+vercel.json                configuração de deploy estático
 ```
 
 ## Editando
@@ -41,6 +45,38 @@ capacidades, mercados, diferenciais, valores, setores e o mapa).
 
 O build também escreve `dist/index.html`, uma versão auto-contida (imagens em `data:` URI) usada
 para pré-visualização e compartilhamento. Não é necessária para o deploy.
+
+## Metadados e domínio
+
+`SITE_URL`, no topo de `tools/build.py`, é a **única** fonte da URL absoluta. Ela alimenta
+`canonical`, `og:url`, `og:image`, `twitter:image`, o JSON-LD, o `robots.txt` e o `sitemap.xml`.
+
+Ao migrar para o domínio próprio, troque essa linha e rode o build:
+
+```python
+SITE_URL = "https://alumicondutores.com.br"
+```
+
+O `<head>` traz Open Graph e Twitter Card completos e um bloco JSON-LD schema.org com dois nós:
+`Organization` (razão social, CNPJ em `taxID`, data de fundação, telefone, e-mail, redes, as três
+unidades em `location` e os 8 produtos em `hasOfferCatalog`) e `WebSite`. Para validar depois de
+mexer, use o [Rich Results Test](https://search.google.com/test/rich-results) e o
+[Sharing Debugger](https://developers.facebook.com/tools/debug/) do Facebook — este último também
+serve para forçar a limpeza do cache da prévia.
+
+## Imagem de compartilhamento
+
+`assets/og-image.jpg` (1200×630) é uma captura de `tools/og.html`, que usa os mesmos ativos e a
+mesma paleta da página. Para regerar depois de editar o cartão:
+
+```bash
+python tools/build.py          # injeta o logotipo → tools/og.built.html
+python -m http.server 8000
+```
+
+Abra `http://localhost:8000/tools/og.built.html` num viewport de **1200×630 com DPR 2**, capture a
+tela (2400×1260) e reduza para 1200×630 em JPEG de qualidade ~88. `tools/og.built.html` é gerado —
+edite `tools/og.html`.
 
 ## Deploy
 

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Alumi Metais — cartão de compartilhamento</title>
+<!--
+  Fonte da imagem assets/og-image.jpg (1200x630).
+  Para regerar: sirva a raiz do site (python -m http.server 8000), abra
+  http://localhost:8000/tools/og.html num viewport de 1200x630 e capture a tela.
+  Ver README, seção "Imagem de compartilhamento".
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    position:relative;background:#0B0908;color:#F2E8E2;
+    font-family:"Open Sans",sans-serif;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:0 84px;isolation:isolate;
+  }
+  .bg{position:absolute;inset:0;z-index:-2}
+  .bg img{width:100%;height:100%;object-fit:cover;object-position:38% 62%}
+  .bg::after{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(72% 96% at 8% 92%, rgba(220,73,33,.34), transparent 62%),
+      linear-gradient(100deg, rgba(8,6,5,.95) 4%, rgba(8,6,5,.76) 48%, rgba(8,6,5,.46) 100%);
+  }
+  /* chanfro do canto inferior direito — mesmo gesto do logotipo e dos cards */
+  .canto{
+    position:absolute;right:0;bottom:0;width:250px;height:250px;z-index:-1;
+    background:linear-gradient(135deg,transparent 49.6%,rgba(246,176,116,.5) 49.6%,rgba(246,176,116,.5) 50.3%,transparent 50.3%);
+  }
+  .logo{width:330px;height:auto;display:block}
+  .logo .lg-word{fill:url(#g)}
+  .logo .lg-sub{fill:#EFE5DF}
+  .regua{
+    height:7px;width:210px;margin:38px 0 26px;
+    background:linear-gradient(90deg,#6B522B,#F6B074);
+    clip-path:polygon(0 0, calc(100% - 28px) 0, 100% 100%, 0 100%);
+  }
+  h1{
+    font-size:60px;line-height:1.06;font-weight:800;letter-spacing:-.032em;
+    max-width:19ch;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg,#EB5F33,#F6B074 58%,#DC4921);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .prods{
+    margin-top:28px;font-size:21px;line-height:1.55;color:#D3C3B8;
+    max-width:47ch;font-weight:400;
+  }
+  .rodape{
+    position:absolute;left:84px;right:84px;bottom:56px;
+    display:flex;justify-content:space-between;align-items:baseline;gap:32px;
+    padding-top:24px;border-top:1px solid rgba(246,176,116,.22);
+    font-size:19px;color:#A8968A;
+  }
+  .rodape b{color:#F2E8E2;font-weight:600}
+</style>
+</head>
+<body>
+  <div class="bg"><img src="../assets/img/hero.webp" alt=""></div>
+  <div class="canto"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9C391E"/><stop offset="13%" stop-color="#DC4921"/>
+      <stop offset="22%" stop-color="#EB5F33"/><stop offset="31%" stop-color="#B84520"/>
+      <stop offset="60%" stop-color="#F6B074"/><stop offset="80%" stop-color="#C66037"/>
+      <stop offset="100%" stop-color="#8A4C2E"/>
+    </linearGradient>
+  </defs></svg>
+
+  <!-- o logotipo é injetado aqui por tools/build.py ao gerar og.html -->
+  {{LOGO}}
+
+  <div class="regua"></div>
+  <h1>Insumos de cobre para a <em>indústria</em>.</h1>
+  <p class="prods">Vergalhão · Fio trefilado · Filamentos · Cordas · Barramentos · Laminados · Tubos · Sucata moída</p>
+
+  <div class="rodape">
+    <span><b>Barueri/SP</b> · Rio de Janeiro/RJ · Guaxupé/MG</span>
+    <span>Atendimento em <b>todo o Brasil</b></span>
+  </div>
+</body>
+</html>

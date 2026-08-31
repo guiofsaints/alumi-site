@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://guiofsaints.github.io/alumi-site/sitemap.xml

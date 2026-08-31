@@ -10,3 +10,6 @@ desktop.ini
 .vercel/
 node_modules/
 __pycache__/
+
+# gerado por tools/build.py a partir de tools/og.html
+tools/og.built.html
