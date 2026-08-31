@@ -264,13 +264,14 @@ section[id]{scroll-margin-top:78px}
 
 /* ---------- faixa de credenciais ---------- */
 .cred{background:var(--breu-2);color:var(--breu-txt);border-top:1px solid var(--breu-linha)}
-.cred__g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--breu-linha)}
+/* as células têm fundo próprio e o gap de 1px faz as divisórias — uma célula
+   vazia viraria um bloco da cor da linha, então nunca deixar sobra na grade */
+.cred__g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--breu-linha)}
 .cred__i{background:var(--breu-2);padding:30px clamp(16px,2.4vw,30px)}
 .cred__i b{display:block;font-size:clamp(1.15rem,2vw,1.5rem);font-weight:800;letter-spacing:-.02em;
   color:var(--cobre-luz);margin-bottom:6px;font-variant-numeric:tabular-nums}
 .cred__i span{font-size:.83rem;color:var(--breu-suave);line-height:1.5;display:block}
-@media (max-width:860px){.cred__g{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:440px){.cred__g{grid-template-columns:1fr}}
+@media (max-width:760px){.cred__g{grid-template-columns:1fr}}
 
 /* ---------- layout de duas colunas ---------- */
 .duo{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(36px,6vw,84px);align-items:center}
@@ -282,6 +283,9 @@ section[id]{scroll-margin-top:78px}
 /* ficha de dados */
 .ficha{margin-top:34px;border-top:1px solid var(--linha);display:grid;
   grid-template-columns:repeat(2,1fr);column-gap:24px}
+/* são 3 dados em 2 colunas: sem isto a última linha fica com meia borda solta.
+   A razão social é o valor mais longo, então é ela que ocupa a linha inteira. */
+.ficha div:first-child{grid-column:1/-1}
 .ficha div{padding:18px 22px 18px 0;border-bottom:1px solid var(--linha)}
 .ficha dt{font-size:.71rem;text-transform:uppercase;letter-spacing:.15em;color:var(--bronze);font-weight:700;margin-bottom:5px}
 .ficha dd{margin:0;font-size:.94rem;font-weight:600;font-variant-numeric:tabular-nums}
@@ -539,7 +543,6 @@ a.canal:hover{padding-left:8px}
     <div class="cred__g">
       <div class="cred__i"><b class="num">2015</b><span>Início das atividades, em 28 de agosto</span></div>
       <div class="cred__i"><b class="num">3 unidades</b><span>São Paulo, Rio de Janeiro e Minas Gerais</span></div>
-      <div class="cred__i"><b class="num">R$ 2 milhões</b><span>Capital social integralizado</span></div>
       <div class="cred__i"><b class="num">14 CNAEs</b><span>Da metalurgia ao transporte e ao despacho</span></div>
     </div>
   </div>
@@ -563,7 +566,6 @@ a.canal:hover{padding-left:8px}
           <div><dt>Razão social</dt><dd>Alumi Condutores Elétricos Ltda</dd></div>
           <div><dt>CNPJ</dt><dd class="num">25.231.623/0001-04</dd></div>
           <div><dt>Início das atividades</dt><dd class="num">28.08.2015</dd></div>
-          <div><dt>Capital social</dt><dd class="num">R$ 2.000.000,00</dd></div>
         </dl>
       </div>
       <figure class="duo__fig ch ch-line rev" style="margin:0">
