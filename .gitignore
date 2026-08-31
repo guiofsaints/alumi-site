@@ -1,0 +1,12 @@
+# build auto-contido (gerado por tools/build.py, usado só para preview/compartilhamento)
+dist/
+
+# sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ferramentas
+.vercel/
+node_modules/
+__pycache__/

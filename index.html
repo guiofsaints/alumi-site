@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alumi Metais — Insumos de cobre para a indústria</title>
+<meta name="description" content="Alumi Metais: vergalhão, fio trefilado, filamentos, cordas, barramentos, laminados, tubos e sucata de cobre para fábricas, refrigeração, indústria automotiva e recicladores. Atendimento em todo o Brasil.">
+<meta name="theme-color" content="#0B0908">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alumi Metais — Insumos de cobre para a indústria">
+<meta property="og:description" content="Especialistas em transformar o cobre em soluções de excelência. Atendimento em todo o Brasil.">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ALUMI — sistema visual
+   Cores, tipografia e proporções derivadas do
+   Manual de Identidade Visual da Marca (004_YANK_ALUMI).
+   O chanfro a 45° é o elemento estrutural da marca: vem dos
+   terminais das letras do logotipo, dos cantos cortados dos
+   cards de produto e das réguas douradas do manual.
+   ============================================================ */
+
+/* ---------- tokens: tema claro (padrão) ---------- */
+:root{
+  /* marca — manual, p.5 */
+  --cobre:#B84C20;              /* primária · Pantone 1525 C */
+  --cobre-vivo:#DC4921;         /* gradiente 13% */
+  --cobre-chama:#EB5F33;        /* gradiente 22% */
+  --cobre-luz:#F6B074;          /* gradiente 60% */
+  --cobre-terra:#8A4C2E;        /* gradiente 100% */
+  --preto:#1D1D1B;              /* Pantone Black C */
+
+  /* superfícies claras — amostradas da apresentação institucional */
+  --papel:#FDF9F7;
+  --papel-2:#F8EAE7;
+  --papel-3:#EFE3DF;
+  --tinta:#241C18;
+  --tinta-suave:#6A5B52;
+  --linha:rgba(36,28,24,.14);
+  --linha-forte:rgba(36,28,24,.24);
+
+  --bronze:#8A6435;             /* olhais e rótulos */
+  --ouro:#8A6E3F;               /* réguas e ícones (cartão digital) */
+  --acento-txt:#A8431B;         /* cobre legível sobre papel */
+  --realce:rgba(184,76,32,.10);
+
+  --sombra:0 2px 4px rgba(36,28,24,.05), 0 12px 32px -12px rgba(36,28,24,.16);
+  --sombra-alta:0 4px 8px rgba(36,28,24,.06), 0 28px 56px -20px rgba(36,28,24,.26);
+
+  /* faixas escuras — superfície assumida da marca, igual nos dois temas */
+  --breu:#0B0908;
+  --breu-2:#15100D;
+  --breu-3:#1F1611;
+  --breu-txt:#F2E8E2;
+  --breu-suave:#B5A296;
+  --breu-linha:rgba(246,176,116,.18);
+  --breu-bronze:#C89B60;
+  --breu-acento:#F0865C;
+
+  --ch:16px;                    /* chanfro padrão */
+  --max:1180px;
+  --gut:clamp(20px,5vw,48px);
+}
+
+/* ---------- tokens: tema escuro ---------- */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --papel:#120E0C;
+    --papel-2:#1A1310;
+    --papel-3:#231A15;
+    --tinta:#F3EAE4;
+    --tinta-suave:#B2A197;
+    --linha:rgba(246,176,116,.16);
+    --linha-forte:rgba(246,176,116,.30);
+    --bronze:#C89B60;
+    --ouro:#B08A50;
+    --acento-txt:#EC7C51;
+    --realce:rgba(246,176,116,.10);
+    --sombra:0 2px 4px rgba(0,0,0,.4), 0 12px 32px -12px rgba(0,0,0,.7);
+    --sombra-alta:0 4px 8px rgba(0,0,0,.45), 0 28px 56px -20px rgba(0,0,0,.8);
+    --breu:#080605;
+    --breu-2:#100C0A;
+    --breu-3:#1B130F;
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#120E0C;
+  --papel-2:#1A1310;
+  --papel-3:#231A15;
+  --tinta:#F3EAE4;
+  --tinta-suave:#B2A197;
+  --linha:rgba(246,176,116,.16);
+  --linha-forte:rgba(246,176,116,.30);
+  --bronze:#C89B60;
+  --ouro:#B08A50;
+  --acento-txt:#EC7C51;
+  --realce:rgba(246,176,116,.10);
+  --sombra:0 2px 4px rgba(0,0,0,.4), 0 12px 32px -12px rgba(0,0,0,.7);
+  --sombra-alta:0 4px 8px rgba(0,0,0,.45), 0 28px 56px -20px rgba(0,0,0,.8);
+  --breu:#080605;
+  --breu-2:#100C0A;
+  --breu-3:#1B130F;
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;
+  background:var(--papel);
+  color:var(--tinta);
+  font-family:"Open Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.08;text-wrap:balance;font-weight:800;letter-spacing:-.022em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.sec{padding-block:clamp(72px,10vw,128px);position:relative}
+.sec--papel{background:var(--papel)}
+.sec--papel2{background:var(--papel-2)}
+/* no tema escuro as faixas escuras quase encostam no fundo da página —
+   a hairline só aparece lá, porque no claro fica invisível sobre o breu */
+.sec--breu{background:var(--breu);color:var(--breu-txt);border-block:1px solid var(--linha)}
+
+/* ---------- chanfro: o elemento da marca ---------- */
+.ch{
+  --c:var(--ch);
+  clip-path:polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+}
+/* moldura chanfrada de 1px (clip-path corta bordas, então usamos 2 camadas) */
+.ch-line{--c:var(--ch);background:var(--linha-forte);padding:1px}
+.ch-line,.ch-line>*{clip-path:polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c))}
+
+/* régua dourada com ponta chanfrada — manual, cabeçalho de página */
+.regua{height:6px;width:clamp(120px,20vw,232px);
+  background:linear-gradient(90deg,var(--ouro),var(--cobre) 82%);
+  clip-path:polygon(0 0, calc(100% - 26px) 0, 100% 100%, 0 100%);
+  margin-bottom:22px}
+.sec--breu .regua,.hero .regua{background:linear-gradient(90deg,#6B522B,var(--cobre-luz))}
+
+/* ---------- tipografia ---------- */
+.olhal{
+  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.19em;
+  color:var(--bronze);margin-bottom:14px;display:block;
+}
+.sec--breu .olhal{color:var(--breu-bronze)}
+.h-sec{font-size:clamp(2rem,4.6vw,3.35rem);text-transform:uppercase;letter-spacing:-.028em}
+.h-sub{font-size:clamp(1.1rem,1.9vw,1.4rem);font-weight:700;letter-spacing:-.015em;text-transform:none}
+.lead{font-size:clamp(1.02rem,1.5vw,1.16rem);color:var(--tinta-suave);max-width:60ch;line-height:1.62}
+.sec--breu .lead{color:var(--breu-suave)}
+.txt{color:var(--tinta-suave);max-width:64ch}
+.sec--breu .txt{color:var(--breu-suave)}
+.num{font-variant-numeric:tabular-nums}
+
+/* frase de destaque — eco da barra de realce da apresentação.
+   Sem clip-path: em texto inline que quebra em várias linhas o clip
+   recorta a caixa inteira e engole as linhas seguintes. */
+.realce{
+  background:var(--realce);
+  box-shadow:inset 0 -2px 0 var(--cobre);
+  padding:.08em .34em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  color:var(--tinta);font-weight:600;
+}
+.sec--breu .realce{background:rgba(246,176,116,.14);color:var(--breu-txt)}
+
+/* ---------- logotipo ---------- */
+.logo{display:block;height:auto}
+.logo .lg-word{fill:var(--cobre);transition:fill .35s ease}
+.logo .lg-sub{fill:var(--tinta);transition:fill .35s ease}
+.logo--claro .lg-word{fill:url(#grad-cobre)}
+.logo--claro .lg-sub{fill:#F0E7E1}
+
+/* ---------- cabeçalho ---------- */
+/* transparente sobre o hero; ganha corpo assim que a página rola */
+.topo{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:border-color .35s ease, background .35s ease;
+}
+section[id]{scroll-margin-top:78px}
+.topo .logo .lg-word{fill:url(#grad-cobre)}
+.topo .logo .lg-sub{fill:#EFE5DF}
+.topo.fixo{
+  background:var(--papel);
+  background:color-mix(in srgb, var(--papel) 88%, transparent);
+  backdrop-filter:saturate(1.4) blur(14px);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom-color:var(--linha);
+}
+.topo.fixo .logo .lg-word{fill:var(--cobre)}
+.topo.fixo .logo .lg-sub{fill:var(--tinta)}
+.topo__in{display:flex;align-items:center;gap:clamp(16px,3vw,40px);
+  min-height:74px;max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.topo .logo{width:132px;flex:none}
+.nav{display:flex;gap:clamp(14px,2.2vw,30px);margin-left:auto;align-items:center}
+.nav a{
+  text-decoration:none;font-size:.86rem;font-weight:600;letter-spacing:.01em;
+  color:#C7B6AA;padding:6px 2px;position:relative;white-space:nowrap;
+  transition:color .2s ease;
+}
+.topo.fixo .nav a{color:var(--tinta-suave)}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;
+  background:var(--cobre);transition:right .28s cubic-bezier(.2,.7,.3,1)}
+.nav a:hover,.nav a:focus-visible{color:#fff}
+.topo.fixo .nav a:hover,.topo.fixo .nav a:focus-visible{color:var(--tinta)}
+.nav a:hover::after,.nav a:focus-visible::after{right:0}
+@media (max-width:940px){.nav{display:none}}
+
+/* ---------- botões ---------- */
+.btn{
+  --c:11px;
+  display:inline-flex;align-items:center;gap:.6em;
+  padding:14px 26px;font:inherit;font-size:.92rem;font-weight:700;letter-spacing:.02em;
+  text-decoration:none;border:0;cursor:pointer;
+  clip-path:polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+  transition:transform .18s ease, background .22s ease, box-shadow .22s ease;
+}
+.btn:focus-visible{outline:0;box-shadow:inset 0 0 0 2px #fff, inset 0 0 0 4px var(--cobre)}
+.btn--cobre{background:linear-gradient(105deg,var(--cobre-vivo),var(--cobre) 55%,var(--cobre-terra));color:#fff}
+.btn--cobre:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(184,76,32,.75)}
+.btn--linha{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--linha-forte)}
+.btn--linha:hover{box-shadow:inset 0 0 0 1.5px var(--cobre);color:var(--acento-txt)}
+.sec--breu .btn--linha,.hero .btn--linha{color:var(--breu-txt);box-shadow:inset 0 0 0 1.5px rgba(246,176,116,.42)}
+.sec--breu .btn--linha:hover,.hero .btn--linha:hover{box-shadow:inset 0 0 0 1.5px var(--cobre-luz);color:var(--cobre-luz)}
+.btn--peq{padding:10px 18px;font-size:.82rem;--c:8px}
+.topo .btn{margin-left:auto}
+/* sem menu no celular, o botão de cotação é a única navegação — nunca esconder */
+@media (max-width:560px){
+  .topo .logo{width:102px}
+  .topo .btn{padding:10px 15px;font-size:.78rem;letter-spacing:0}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--breu);color:var(--breu-txt);overflow:hidden;isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-2}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:38% 60%}
+.hero__bg::after{content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(70% 90% at 12% 88%, rgba(220,73,33,.30), transparent 62%),
+    linear-gradient(100deg, rgba(8,6,5,.94) 6%, rgba(8,6,5,.72) 46%, rgba(8,6,5,.42) 100%);}
+.hero__in{padding-block:clamp(88px,15vw,168px) clamp(64px,9vw,104px)}
+.hero h1{
+  font-size:clamp(2.15rem,5.6vw,4.15rem);letter-spacing:-.035em;line-height:1.02;
+  max-width:17ch;margin-bottom:26px;
+}
+.hero h1 em{font-style:normal;
+  background:linear-gradient(100deg,var(--cobre-chama),var(--cobre-luz) 58%,var(--cobre-vivo));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:#D9CCC3;max-width:53ch;font-size:clamp(1.04rem,1.7vw,1.22rem)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.hero__meta{
+  display:flex;flex-wrap:wrap;gap:10px 34px;margin-top:clamp(48px,7vw,76px);
+  padding-top:26px;border-top:1px solid var(--breu-linha);
+  font-size:.82rem;color:var(--breu-suave);letter-spacing:.02em;
+}
+.hero__meta b{color:var(--breu-txt);font-weight:600}
+
+/* ---------- faixa de credenciais ---------- */
+.cred{background:var(--breu-2);color:var(--breu-txt);border-top:1px solid var(--breu-linha)}
+.cred__g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--breu-linha)}
+.cred__i{background:var(--breu-2);padding:30px clamp(16px,2.4vw,30px)}
+.cred__i b{display:block;font-size:clamp(1.15rem,2vw,1.5rem);font-weight:800;letter-spacing:-.02em;
+  color:var(--cobre-luz);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.cred__i span{font-size:.83rem;color:var(--breu-suave);line-height:1.5;display:block}
+@media (max-width:860px){.cred__g{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:440px){.cred__g{grid-template-columns:1fr}}
+
+/* ---------- layout de duas colunas ---------- */
+.duo{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(36px,6vw,84px);align-items:center}
+.duo--inv .duo__fig{order:-1}
+@media (max-width:900px){.duo{grid-template-columns:1fr;gap:40px}.duo--inv .duo__fig{order:0}}
+.duo__fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.duo__fig{box-shadow:var(--sombra)}
+
+/* ficha de dados */
+.ficha{margin-top:34px;border-top:1px solid var(--linha);display:grid;
+  grid-template-columns:repeat(2,1fr);column-gap:24px}
+.ficha div{padding:18px 22px 18px 0;border-bottom:1px solid var(--linha)}
+.ficha dt{font-size:.71rem;text-transform:uppercase;letter-spacing:.15em;color:var(--bronze);font-weight:700;margin-bottom:5px}
+.ficha dd{margin:0;font-size:.94rem;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* ---------- grade de produtos ---------- */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,30px);margin-top:52px}
+@media (max-width:1020px){.prods{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.prods{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:430px){.prods{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;background:var(--papel);
+  box-shadow:var(--sombra);transition:transform .24s ease, box-shadow .24s ease}
+.card:hover{transform:translateY(-5px);box-shadow:var(--sombra-alta)}
+.card__img{aspect-ratio:16/11;overflow:hidden;background:var(--papel-3)}
+.card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.card:hover .card__img img{transform:scale(1.05)}
+.card__b{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card__b h3{font-size:1rem;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.card__spec{font-size:.83rem;color:var(--tinta-suave);font-variant-numeric:tabular-nums;
+  padding-bottom:12px;border-bottom:1px solid var(--linha);margin-bottom:auto}
+.card__cta{background:none;border:0;padding:0;margin-top:12px;cursor:pointer;font:inherit;
+  font-size:.79rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--acento-txt);display:inline-flex;align-items:center;gap:.45em;text-align:left;
+  transition:gap .2s ease}
+.card__cta:hover{gap:.8em}
+.card__cta:focus-visible{outline:2px solid var(--cobre);outline-offset:3px}
+.card__cta svg{width:14px;height:14px;flex:none}
+
+/* ---------- capacidades ---------- */
+.caps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);
+  margin-top:52px;border-block:1px solid var(--linha)}
+.caps--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:940px){.caps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.caps--3{grid-template-columns:1fr}}
+@media (max-width:520px){.caps{grid-template-columns:1fr}}
+.cap{background:var(--papel);padding:26px clamp(18px,2.2vw,26px) 28px;
+  display:flex;flex-direction:column;gap:9px;transition:background .22s ease}
+.cap:hover{background:var(--papel-2)}
+.cap h3{font-size:.99rem;font-weight:700;line-height:1.3;letter-spacing:-.008em}
+.cap p{font-size:.86rem;color:var(--tinta-suave);line-height:1.55}
+.cap .cnae{margin-top:auto;padding-top:12px;font-size:.7rem;letter-spacing:.09em;font-weight:700;
+  color:var(--bronze);text-transform:uppercase;font-variant-numeric:tabular-nums}
+.nota-cap{margin-top:26px;font-size:.9rem;color:var(--tinta-suave);
+  padding-left:18px;border-left:3px solid var(--cobre)}
+
+/* ---------- mercados ---------- */
+.merc{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,22px);margin-top:46px}
+@media (max-width:820px){.merc{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.merc{grid-template-columns:1fr}}
+.merc__i{background:var(--papel);box-shadow:var(--sombra);padding:26px 22px 28px;
+  display:flex;flex-direction:column;gap:12px}
+.merc__i svg{width:30px;height:30px;color:var(--cobre);flex:none}
+.merc__i b{font-size:1rem;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.merc__i span{font-size:.85rem;color:var(--tinta-suave);line-height:1.5}
+
+/* ---------- diferenciais (faixa escura) ---------- */
+.dif{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,5.5vw,72px);align-items:start}
+@media (max-width:900px){.dif{grid-template-columns:1fr}}
+.dif__fig img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.dif__lista{display:grid;gap:1px;background:var(--breu-linha);margin-top:8px}
+.dif__i{background:var(--breu);padding:24px 4px 26px 0}
+.dif__i h3{font-size:1.03rem;font-weight:700;color:var(--breu-txt);margin-bottom:8px;letter-spacing:-.01em}
+.dif__i p{font-size:.9rem;color:var(--breu-suave);line-height:1.6;max-width:58ch}
+.citacao{border-left:3px solid var(--cobre);padding:4px 0 4px 20px;margin-top:32px;
+  font-size:clamp(1.02rem,1.7vw,1.2rem);line-height:1.5;color:var(--breu-txt);font-weight:300}
+.citacao b{font-weight:700;color:var(--cobre-luz)}
+
+/* ---------- missão / visão / valores ---------- */
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,30px);margin-top:48px}
+@media (max-width:760px){.mv{grid-template-columns:1fr}}
+.mv__i{background:var(--papel);box-shadow:var(--sombra);padding:clamp(26px,3.4vw,40px)}
+.mv__i h3{font-size:1.5rem;text-transform:uppercase;letter-spacing:-.02em;color:var(--bronze);margin-bottom:14px}
+.mv__i p{color:var(--tinta-suave);font-size:.98rem;line-height:1.62}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,28px);margin-top:clamp(20px,3vw,30px)}
+@media (max-width:940px){.vals{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.vals{grid-template-columns:1fr}}
+.val{padding-top:20px;border-top:3px solid var(--cobre)}
+.val h4{font-size:.97rem;font-weight:700;margin-bottom:9px;letter-spacing:-.01em}
+.val p{font-size:.86rem;color:var(--tinta-suave);line-height:1.58}
+
+/* ---------- atuação / unidades ---------- */
+.atu{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(36px,6vw,80px);align-items:center}
+@media (max-width:900px){.atu{grid-template-columns:1fr}}
+.mapa{width:100%;max-width:440px;margin-inline:auto;height:auto;overflow:visible}
+.mapa .terra{fill:var(--cobre);opacity:.9}
+.mapa .pin{fill:var(--tinta)}
+.mapa .pin-halo{fill:var(--cobre);opacity:.18}
+.mapa .guia{stroke:var(--cobre);stroke-width:3;fill:none;opacity:.55}
+.mapa .pin-txt{fill:var(--tinta);font-family:inherit;font-size:46px;font-weight:800;letter-spacing:.06em}
+.unids{display:grid;gap:1px;background:var(--linha);border-block:1px solid var(--linha)}
+.unid{background:var(--papel);padding:24px 0;display:grid;grid-template-columns:auto 1fr;
+  gap:6px 20px;align-items:start}
+@media (max-width:560px){.unid{grid-template-columns:1fr;gap:8px}}
+.unid__tag{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;background:var(--cobre);padding:5px 10px;align-self:start;white-space:nowrap}
+.unid__tag--fil{background:transparent;color:var(--bronze);box-shadow:inset 0 0 0 1.5px var(--linha-forte)}
+.unid h3{font-size:1.06rem;font-weight:700;margin-bottom:5px;letter-spacing:-.012em}
+.unid p{font-size:.9rem;color:var(--tinta-suave);line-height:1.55}
+.unid .cnpj{font-size:.78rem;color:var(--bronze);font-weight:700;letter-spacing:.05em;
+  margin-top:7px;font-variant-numeric:tabular-nums}
+
+/* ---------- contato ---------- */
+.cont{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(40px,6vw,80px);align-items:start}
+@media (max-width:900px){.cont{grid-template-columns:1fr}}
+.form{display:grid;gap:16px;margin-top:34px}
+.linha2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:520px){.linha2{grid-template-columns:1fr}}
+.campo{display:flex;flex-direction:column;gap:7px}
+.campo label{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--breu-bronze)}
+.campo input,.campo select,.campo textarea{
+  --c:10px;font:inherit;font-size:.95rem;color:var(--breu-txt);
+  background:var(--breu-3);border:0;padding:13px 15px;width:100%;
+  box-shadow:inset 0 0 0 1px var(--breu-linha);
+  clip-path:polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+  transition:box-shadow .2s ease;
+}
+.campo textarea{resize:vertical;min-height:104px;line-height:1.55}
+.campo select{appearance:none;
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C89B60' stroke-width='1.6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;background-size:12px;padding-right:40px}
+.campo input:focus,.campo select:focus,.campo textarea:focus{
+  outline:0;box-shadow:inset 0 0 0 2px var(--cobre-chama)}
+.campo input::placeholder,.campo textarea::placeholder{color:#7C6C61}
+.form__acao{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
+.form__nota{font-size:.78rem;color:var(--breu-suave);line-height:1.5}
+
+.saida{--c:12px;background:var(--breu-3);box-shadow:inset 0 0 0 1px var(--breu-linha);
+  padding:22px;margin-top:20px;
+  clip-path:polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c))}
+.saida[hidden]{display:none}
+.saida h4{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--breu-bronze);margin-bottom:12px}
+.saida pre{margin:0 0 16px;white-space:pre-wrap;word-break:break-word;font:inherit;
+  font-size:.88rem;color:var(--breu-suave);line-height:1.6;max-height:230px;overflow:auto}
+.saida__acao{display:flex;flex-wrap:wrap;gap:10px}
+
+/* canais diretos */
+.canais{display:grid;gap:1px;background:var(--breu-linha);border-block:1px solid var(--breu-linha)}
+.canal{background:var(--breu);padding:20px 0;display:flex;gap:16px;align-items:flex-start;
+  text-decoration:none;transition:padding-left .22s ease}
+a.canal:hover{padding-left:8px}
+.canal svg{width:20px;height:20px;color:var(--cobre-luz);flex:none;margin-top:3px}
+.canal b{display:block;font-size:.71rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--breu-bronze);font-weight:700;margin-bottom:4px}
+.canal span{font-size:.94rem;color:var(--breu-txt);line-height:1.5;font-variant-numeric:tabular-nums}
+.canal em{font-style:normal;font-size:.85rem;color:var(--breu-suave);display:block;margin-top:3px}
+
+.setores{margin-top:38px}
+.setores h3{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--breu-bronze);margin-bottom:16px}
+.setor{display:grid;grid-template-columns:auto 1fr;gap:4px 20px;align-items:baseline;
+  padding:12px 0;border-bottom:1px solid var(--breu-linha);font-size:.88rem}
+@media (max-width:420px){.setor{grid-template-columns:1fr}}
+.setor b{font-weight:700;color:var(--breu-txt);min-width:148px}
+.setor .mails{display:flex;flex-direction:column;gap:3px;min-width:0}
+.setor a{color:var(--breu-suave);text-decoration:none;border-bottom:1px solid transparent;
+  transition:color .2s ease,border-color .2s ease;word-break:break-all}
+.setor a:hover{color:var(--cobre-luz);border-bottom-color:var(--cobre-luz)}
+
+/* ---------- rodapé ---------- */
+.rod{background:var(--breu-2);color:var(--breu-suave);padding-block:clamp(48px,6vw,72px) 32px;
+  border-top:1px solid var(--breu-linha);font-size:.86rem}
+.rod__top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(28px,4vw,56px);
+  padding-bottom:38px;border-bottom:1px solid var(--breu-linha)}
+@media (max-width:820px){.rod__top{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.rod__top{grid-template-columns:1fr}}
+.rod .logo{width:150px;margin-bottom:18px}
+.rod h4{font-size:.71rem;letter-spacing:.14em;text-transform:uppercase;color:var(--breu-bronze);
+  margin-bottom:14px;font-weight:700}
+.rod a{color:var(--breu-suave);text-decoration:none;transition:color .2s ease}
+.rod a:hover{color:var(--cobre-luz)}
+.rod li{margin-bottom:9px;line-height:1.5}
+.rod__frase{color:var(--breu-txt);font-size:.98rem;line-height:1.5;max-width:30ch;font-weight:300}
+.rod__social{display:flex;gap:10px;margin-top:18px}
+.rod__social a{width:38px;height:38px;display:grid;place-items:center;
+  box-shadow:inset 0 0 0 1px var(--breu-linha);transition:box-shadow .2s ease,color .2s ease;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.rod__social a:hover{box-shadow:inset 0 0 0 1px var(--cobre-luz)}
+.rod__social svg{width:17px;height:17px}
+.rod__fim{padding-top:28px;display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between;
+  font-size:.79rem;color:#7D6D62}
+.rod__fim b{color:var(--breu-suave);font-weight:600}
+
+/* ---------- revelação ao rolar ---------- */
+.rev{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+.rev.vis{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none;transition:none}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+
+.pular{position:absolute;left:-9999px;top:0;background:var(--cobre);color:#fff;padding:12px 20px;z-index:100}
+.pular:focus{left:12px;top:12px}
+</style>
+</head>
+<body>
+
+<a class="pular" href="#produtos">Pular para os produtos</a>
+
+<!-- definições SVG reutilizáveis -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <linearGradient id="grad-cobre" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#9C391E"/>
+      <stop offset="13%"  stop-color="#DC4921"/>
+      <stop offset="22%"  stop-color="#EB5F33"/>
+      <stop offset="31%"  stop-color="#B84520"/>
+      <stop offset="60%"  stop-color="#F6B074"/>
+      <stop offset="80%"  stop-color="#C66037"/>
+      <stop offset="100%" stop-color="#8A4C2E"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ============ CABEÇALHO ============ -->
+<header class="topo" id="topo">
+  <div class="topo__in">
+    <a href="#topo" aria-label="Alumi Metais — início"><svg class="logo" viewBox="0 0 1000 283.6" role="img" aria-label="Alumi Metais"><path class="lg-word" d="M909.33 0.0L909.33 172.45L859.32 172.45L859.32 62.33L790.58 146.58L788.12 146.58L719.39 62.33L719.39 172.45L670.85 172.45L670.85 0.0L725.79 0.0L790.58 82.77L855.87 0.0L909.33 0.0ZM146.09 103.72L116.28 42.62L86.22 103.72L146.09 103.72M163.58 139.44L68.98 139.44L52.72 172.45L0.0 172.45L89.18 0.0L144.12 0.0L233.3 172.45L179.84 172.45L163.58 139.44ZM952.53 0.0L949.74 0.0L949.74 172.45L1000.0 172.45L1000.0 58.5L952.53 0.0ZM302.54 132.05L302.54 57.88L255.58 0.0L252.28 0.0L252.28 172.45L418.57 172.45L418.57 132.05L302.54 132.05ZM586.54 0.0L583.14 0.0L583.14 87.21C583.14 117.27 566.64 136.73 533.38 136.73C500.12 136.73 483.37 117.27 483.37 87.21L483.37 56.94L437.17 0.0L433.11 0.0L433.11 91.15C433.11 143.63 469.08 178.12 533.38 178.12C597.68 178.12 633.4 143.63 633.4 91.15L633.4 57.76L586.54 0.0Z"/><path class="lg-sub" d="M287.27 215.06L287.27 281.64L282.33 281.64L282.33 222.1L246.47 265.28L246.09 265.28L210.14 222.1L210.14 281.64L205.29 281.64L205.29 215.06L210.71 215.06L246.38 258.05L282.04 215.06L287.27 215.06ZM406.07 276.98L406.07 281.64L343.4 281.64L343.4 215.06L405.12 215.06L405.12 219.63L348.34 219.63L348.34 245.4L397.04 245.4L397.04 250.06L348.34 250.06L348.34 276.98L406.07 276.98ZM516.69 219.53L484.16 219.53L484.16 281.64L479.22 281.64L479.22 219.53L446.79 219.53L446.79 215.06L516.69 215.06L516.69 219.53ZM603.34 257.39L582.23 219.63L561.21 257.39L603.34 257.39M605.81 261.95L558.74 261.95L547.8 281.64L542.28 281.64L579.56 215.06L585.08 215.06L622.36 281.64L616.84 281.64L605.81 261.95ZM668.69 215.06h4.95v66.57h-4.95ZZM794.71 263.09C794.71 274.69 782.72 283.63 760.94 283.63C745.54 283.63 731.75 278.78 723.09 269.37L726.71 265.85C734.88 274.88 746.96 278.97 761.14 278.97C779.49 278.97 789.67 272.41 789.67 263.38C789.67 254.15 778.54 251.58 759.42 249.78C742.21 248.16 725.47 244.55 725.47 231.99C725.47 219.82 741.45 213.07 758.57 213.07C773.02 213.07 784.24 217.73 791.19 224.76L787.29 228.0C780.63 220.87 770.55 217.82 758.76 217.73C745.92 217.63 730.61 222.1 730.61 231.9C730.61 241.12 744.49 243.6 761.14 245.12C781.01 246.83 794.71 250.63 794.71 263.09Z"/></svg></a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#empresa">Empresa</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#capacidades">Capacidades</a>
+      <a href="#mercados">Mercados</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn--cobre btn--peq" href="#contato">Solicitar cotação</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__bg"><img src="assets/img/hero.webp" alt="" width="1920" height="1080" fetchpriority="high"></div>
+  <div class="wrap hero__in">
+    <span class="olhal" style="color:var(--breu-bronze)">Metalurgia do cobre · desde 2015</span>
+    <h1>Especialistas em transformar o cobre em <em>soluções de excelência</em>.</h1>
+    <p class="lead">Vergalhão, fio trefilado, filamentos, cordas, barramentos, laminados, tubos e sucata moída
+      para fábricas, refrigeração, indústria automotiva e recicladores — com padrão de qualidade,
+      logística estruturada e atendimento em todo o Brasil.</p>
+    <div class="hero__cta">
+      <a class="btn btn--cobre" href="#contato">Solicitar cotação</a>
+      <a class="btn btn--linha" href="#produtos">Ver linha de produtos</a>
+    </div>
+    <div class="hero__meta">
+      <span><b>Matriz</b> Barueri/SP</span>
+      <span><b>Filiais</b> Rio de Janeiro/RJ · Guaxupé/MG</span>
+      <span><b>Atendimento</b> todo o território nacional</span>
+      <span class="num"><b>CNPJ</b> 25.231.623/0001-04</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREDENCIAIS ============ -->
+<section class="cred" aria-label="A empresa em números">
+  <div class="wrap">
+    <div class="cred__g">
+      <div class="cred__i"><b class="num">2015</b><span>Início das atividades, em 28 de agosto</span></div>
+      <div class="cred__i"><b class="num">3 unidades</b><span>São Paulo, Rio de Janeiro e Minas Gerais</span></div>
+      <div class="cred__i"><b class="num">R$ 2 milhões</b><span>Capital social integralizado</span></div>
+      <div class="cred__i"><b class="num">14 CNAEs</b><span>Da metalurgia ao transporte e ao despacho</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMPRESA ============ -->
+<section class="sec sec--papel" id="empresa">
+  <div class="wrap">
+    <div class="duo">
+      <div class="rev">
+        <div class="regua" aria-hidden="true"></div>
+        <span class="olhal">Sobre a empresa</span>
+        <h2 class="h-sec">Não apenas mais<br>um fornecedor</h2>
+        <p class="lead" style="margin-top:22px">A Alumi Metais é uma empresa especializada no segmento do cobre,
+          destacando-se por sua ênfase na qualidade dos produtos e serviços oferecidos.</p>
+        <p class="txt" style="margin-top:18px">Cada etapa de sua cadeia produtiva é cuidadosamente planejada e
+          executada para garantir que os produtos finais atendam aos mais altos padrões da indústria, se empenhando
+          em ser <span class="realce">não apenas mais um fornecedor, mas um parceiro confiável e estratégico</span>
+          para as empresas que buscam a mais alta qualidade em materiais de cobre.</p>
+        <dl class="ficha">
+          <div><dt>Razão social</dt><dd>Alumi Condutores Elétricos Ltda</dd></div>
+          <div><dt>CNPJ</dt><dd class="num">25.231.623/0001-04</dd></div>
+          <div><dt>Início das atividades</dt><dd class="num">28.08.2015</dd></div>
+          <div><dt>Capital social</dt><dd class="num">R$ 2.000.000,00</dd></div>
+        </dl>
+      </div>
+      <figure class="duo__fig ch ch-line rev" style="margin:0">
+        <img src="assets/img/rods.webp" alt="Vergalhões de cobre vistos de topo, empilhados" width="1209" height="866" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUTOS ============ -->
+<section class="sec sec--papel2" id="produtos">
+  <div class="wrap">
+    <div class="rev">
+      <div class="regua" aria-hidden="true"></div>
+      <span class="olhal">Linha de produtos</span>
+      <h2 class="h-sec">Insumos de cobre,<br>latão e bronze</h2>
+      <p class="lead" style="margin-top:22px">Do vergalhão ao filamento, com bitolas sob especificação —
+        e a compra de sucata moída para reprocesso.</p>
+    </div>
+    <div class="prods">
+      <article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-vergalhao.webp" alt="Vergalhão de cobre 8,00 mm" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Vergalhão de cobre</h3>
+          <p class="card__spec">Ø 8,00 mm</p>
+          <button class="card__cta" type="button" data-produto="Vergalhão de cobre 8,00 mm">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+<article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-fio.webp" alt="Fio trefilado de cobre 1,45 mm" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Fio trefilado de cobre</h3>
+          <p class="card__spec">Ø 1,45 mm</p>
+          <button class="card__cta" type="button" data-produto="Fio trefilado de cobre 1,45 mm">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+<article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-filamentos.webp" alt="Filamentos de cobre 0,25–0,40 mm" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Filamentos de cobre</h3>
+          <p class="card__spec">Ø 0,25 mm a 0,40 mm</p>
+          <button class="card__cta" type="button" data-produto="Filamentos de cobre 0,25–0,40 mm">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+<article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-cordas.webp" alt="Cordas de cobre" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Cordas de cobre</h3>
+          <p class="card__spec">Diversas bitolas</p>
+          <button class="card__cta" type="button" data-produto="Cordas de cobre">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+<article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-barramentos.webp" alt="Barramentos de cobre e latão" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Barramentos</h3>
+          <p class="card__spec">Cobre e latão · todos os formatos</p>
+          <button class="card__cta" type="button" data-produto="Barramentos de cobre e latão">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+<article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-laminados.webp" alt="Laminados de cobre, latão e bronze" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Laminados</h3>
+          <p class="card__spec">Cobre, latão e bronze</p>
+          <button class="card__cta" type="button" data-produto="Laminados de cobre, latão e bronze">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+<article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-tubos.webp" alt="Tubos de cobre" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Tubos de cobre</h3>
+          <p class="card__spec">Consulte medidas disponíveis</p>
+          <button class="card__cta" type="button" data-produto="Tubos de cobre">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+<article class="card ch rev">
+        <div class="card__img"><img src="assets/img/prod-sucata.webp" alt="Sucata de cobre moído" loading="lazy"></div>
+        <div class="card__b">
+          <h3>Sucata de cobre moído</h3>
+          <p class="card__spec">Compra e fornecimento</p>
+          <button class="card__cta" type="button" data-produto="Sucata de cobre moído">Solicitar cotação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6"/></svg></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPACIDADES ============ -->
+<section class="sec sec--papel" id="capacidades">
+  <div class="wrap">
+    <div class="rev">
+      <div class="regua" aria-hidden="true"></div>
+      <span class="olhal">Capacidades</span>
+      <h2 class="h-sec">Metalurgia, transformação<br>e logística sob o mesmo CNPJ</h2>
+      <p class="lead" style="margin-top:22px">O objeto social da Alumi cobre a cadeia do não-ferroso de ponta a
+        ponta — o que reduz intermediários entre a sua ordem de compra e o material na sua linha.</p>
+    </div>
+    <div class="caps rev">
+      <div class="cap"><h3>Metalurgia do cobre</h3><p>Transformação do cobre em insumos industriais, do vergalhão ao filamento.</p><span class="cnae num">CNAE 24.43-1-00</span></div>
+<div class="cap"><h3>Fios, cabos e condutores</h3><p>Fabricação de fios, cabos e condutores elétricos.</p><span class="cnae num">CNAE 27.33-3-00</span></div>
+<div class="cap"><h3>Alumínio e laminados</h3><p>Produção de alumínio e suas ligas em formas primárias e de laminados.</p><span class="cnae num">CNAE 24.41-5-01 / 02</span></div>
+<div class="cap"><h3>Fundição de não-ferrosos</h3><p>Fundição de metais não-ferrosos e suas ligas.</p><span class="cnae num">CNAE 24.52-1-00</span></div>
+<div class="cap"><h3>Outros não-ferrosos</h3><p>Metalurgia de outros metais não-ferrosos e suas ligas.</p><span class="cnae num">CNAE 24.49-1-99</span></div>
+<div class="cap"><h3>Resíduos e sucatas metálicos</h3><p>Comércio atacadista de resíduos e sucatas — compra de cobre moído.</p><span class="cnae num">CNAE 46.87-7-03</span></div>
+<div class="cap"><h3>Transporte rodoviário de cargas</h3><p>Frete municipal, intermunicipal, interestadual e internacional.</p><span class="cnae num">CNAE 49.30-2-01 / 02</span></div>
+<div class="cap"><h3>Comissária de despachos</h3><p>Despacho e intermediação documental das cargas.</p><span class="cnae num">CNAE 52.50-8-01</span></div>
+    </div>
+    <p class="nota-cap rev">As industrializações de produtos relacionados no objeto social podem ser
+      <strong>próprias ou por encomenda de terceiros</strong> — atendemos projetos de tolling sob especificação.</p>
+  </div>
+</section>
+
+<!-- ============ MERCADOS ============ -->
+<section class="sec sec--papel2" id="mercados">
+  <div class="wrap">
+    <div class="duo duo--inv">
+      <div class="rev">
+        <div class="regua" aria-hidden="true"></div>
+        <span class="olhal">Público B2B</span>
+        <h2 class="h-sec">Quem compra<br>da Alumi</h2>
+        <p class="lead" style="margin-top:22px">Nosso compromisso é fornecer insumos de cobre excepcionais para
+          várias indústrias, atendendo às necessidades de fábricas, empresas de refrigeração, indústria automotiva
+          e empresas que compram sucata moída.</p>
+      </div>
+      <figure class="duo__fig ch ch-line rev" style="margin:0">
+        <img src="assets/img/parceria.webp" alt="Reunião comercial entre representantes de duas empresas" width="879" height="866" loading="lazy">
+      </figure>
+    </div>
+    <div class="merc">
+      <div class="merc__i ch rev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20M4 20V10l5 3V10l5 3V6l5 3v11"/><path d="M8 20v-4h3v4"/></svg>
+        <b>Fábricas</b><span>Insumo de cobre para linhas de produção que exigem constância de bitola e liga.</span></div>
+<div class="merc__i ch rev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.9 6.5l14.2 11M19.1 6.5 4.9 17.5"/><path d="m9 4 3 2 3-2M9 20l3-2 3 2"/></svg>
+        <b>Empresas de refrigeração</b><span>Tubos e condutores para serpentinas, trocadores e sistemas de frio.</span></div>
+<div class="merc__i ch rev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17.2v-3.4l1.8-4A2 2 0 0 1 7.6 8.5h8.8a2 2 0 0 1 1.8 1.3l1.8 4v3.4"/><path d="M4 13.8h16"/><circle cx="7.8" cy="17.2" r="1.7"/><circle cx="16.2" cy="17.2" r="1.7"/></svg>
+        <b>Indústria automotiva</b><span>Filamentos, cordas e barramentos para chicotes, motores e componentes.</span></div>
+<div class="merc__i ch rev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5A8 8 0 0 0 6.3 6.3L4 8.6"/><path d="M4 4.2v4.4h4.4"/><path d="M4 12.5a8 8 0 0 0 13.7 5.2l2.3-2.3"/><path d="M20 19.8v-4.4h-4.4"/></svg>
+        <b>Compradores de sucata moída</b><span>Fornecimento e compra de cobre moído para reprocesso.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="sec sec--breu" id="diferenciais">
+  <div class="wrap">
+    <div class="dif">
+      <div class="rev">
+        <figure class="dif__fig ch" style="margin:0 0 28px">
+          <img src="assets/img/coils.webp" alt="Catodos de cobre empilhados em pátio" width="576" height="821" loading="lazy">
+        </figure>
+        <blockquote class="citacao" style="margin-top:0">
+          O mercado de cobre no Brasil apresenta uma <b>dinâmica robusta</b>, refletindo a importância
+          estratégica desse metal na indústria nacional.
+        </blockquote>
+      </div>
+      <div class="rev">
+        <div class="regua" aria-hidden="true"></div>
+        <span class="olhal">Diferenciais</span>
+        <h2 class="h-sec">Por que fechar<br>com a Alumi</h2>
+        <div class="dif__lista">
+          <div class="dif__i"><h3>Qualidade e incentivo fiscal</h3><p>O nosso compromisso não é apenas oferecer excelência nos insumos de cobre, mas também proporcionar o atendimento e serviço de alto padrão, com preços competitivos do mercado e vantagens adicionais aos nossos clientes.</p></div>
+<div class="dif__i"><h3>Atendimento personalizado</h3><p>Contamos com um time de ponta que está sempre disponível para te atender nos canais de comunicação.</p></div>
+<div class="dif__i"><h3>Parcerias a longo prazo</h3><p>Estabelecemos relacionamentos sólidos e de confiança com clientes e parceiros, baseados na transparência e na colaboração. Parcerias fortes são a base para o crescimento mútuo e contínuo no mercado.</p></div>
+<div class="dif__i"><h3>Logística que acompanha sua linha</h3><p>Prezamos por uma entrega rápida e segura, com sistema de logística próprio no objeto social, para manter sua produção em constante evolução.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUSTENTABILIDADE ============ -->
+<section class="sec sec--papel" id="sustentabilidade">
+  <div class="wrap">
+    <div class="duo">
+      <div class="rev">
+        <div class="regua" aria-hidden="true"></div>
+        <span class="olhal">Sustentabilidade</span>
+        <h2 class="h-sec">Transformando excedentes<br>em excelência</h2>
+        <p class="lead" style="margin-top:22px">O futuro também é nossa preocupação. Por isso reutilizamos
+          materiais e adotamos processos sustentáveis que atuam em prol do meio ambiente.</p>
+        <p class="txt" style="margin-top:18px">A Alumi busca minimizar seu impacto ambiental e contribuir para um
+          mundo mais limpo e sustentável — reutilizando materiais e adotando práticas ecologicamente responsáveis
+          em sua produção.</p>
+      </div>
+      <figure class="duo__fig ch ch-line rev" style="margin:0">
+        <img src="assets/img/prod-sucata.webp" alt="Sucata de cobre moído pronta para reprocesso" width="759" height="441" loading="lazy">
+      </figure>
+    </div>
+    <div class="caps caps--3 rev" style="margin-top:clamp(40px,5vw,64px)">
+      <div class="cap"><h3>Reaproveitamento de materiais</h3><p>Sobras e excedentes voltam ao processo como matéria-prima qualificada.</p></div>
+      <div class="cap"><h3>Compra de sucata moída</h3><p>Damos destino produtivo ao cobre pós-industrial de quem gera resíduo metálico.</p></div>
+      <div class="cap"><h3>Processos responsáveis</h3><p>Práticas ecologicamente responsáveis em toda a produção.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSÃO / VISÃO / VALORES ============ -->
+<section class="sec sec--papel2" id="principios">
+  <div class="wrap">
+    <div class="rev">
+      <div class="regua" aria-hidden="true"></div>
+      <span class="olhal">Princípios</span>
+      <h2 class="h-sec">Missão, visão e valores</h2>
+    </div>
+    <div class="mv rev">
+      <div class="mv__i">
+        <h3>Missão</h3>
+        <p>Fornecer insumos do cobre de qualidade superior, buscando aprimorar o setor industrial por meio da
+          excelência em produtos e serviços, oferecendo soluções que impulsionam o crescimento dos clientes e do
+          país, ao mesmo tempo em que minimizem o impacto ambiental.</p>
+      </div>
+      <div class="mv__i">
+        <h3>Visão</h3>
+        <p>Ser a principal referência no fornecimento de produtos de cobre e na adoção de práticas sustentáveis na
+          indústria metalúrgica. A Alumi Metais quer ser reconhecida pela inovação, qualidade incomparável e
+          compromisso com a proteção do meio ambiente.</p>
+      </div>
+    </div>
+    <div class="vals rev">
+      <div class="val"><h4>Excelência em qualidade</h4><p>Mantemos os mais altos padrões de qualidade em todos os aspectos dos produtos e serviços, visando à satisfação e confiança dos clientes.</p></div>
+<div class="val"><h4>Sustentabilidade ambiental</h4><p>Priorizamos a sustentabilidade, reutilizando materiais e adotando práticas ecologicamente responsáveis na produção.</p></div>
+<div class="val"><h4>Parceria e confiança</h4><p>Relacionamentos sólidos e de longo prazo com clientes e parceiros, baseados na transparência e na colaboração.</p></div>
+<div class="val"><h4>Inovação e adaptação</h4><p>Sempre em busca de maneiras criativas de aprimorar produtos e processos, atendendo às necessidades em constante evolução do mercado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNIDADES ============ -->
+<section class="sec sec--papel" id="unidades">
+  <div class="wrap">
+    <div class="rev">
+      <div class="regua" aria-hidden="true"></div>
+      <span class="olhal">Atuação</span>
+      <h2 class="h-sec">Em todo o Brasil</h2>
+      <p class="lead" style="margin-top:22px">A Alumi Metais tem uma presença sólida no cenário industrial
+        brasileiro. Com operações estrategicamente localizadas e uma rede logística eficiente, está bem posicionada
+        para atender às necessidades de uma ampla gama de indústrias em todo o país.</p>
+    </div>
+    <div class="atu" style="margin-top:52px">
+      <div class="rev"><svg class="mapa" viewBox="0 0 1000 1015" role="img" aria-label="Mapa do Brasil com as unidades da Alumi em São Paulo, Rio de Janeiro e Minas Gerais"><path class="terra" d="M195.55 380.79C204.03 380.79 213.94 384.02 220.08 389.03L285.79 442.63L387.57 526.23C394.62 532.03 400.78 543.23 401.87 552.3L416.67 673.9C417.39 679.81 421.57 688.82 425.62 693.18L511.53 785.7C518.55 793.26 519.84 806.08 514.47 814.88L450.31 920.18C448.31 923.46 449.27 928.11 452.42 930.33L552.68 1001.01C554.08 1001.99 555.69 1002.35 557.25 1002.03C558.81 1001.71 560.16 1000.74 561.05 999.29L633.13 881.94C636.33 876.74 639.13 866.82 639.13 860.72L639.13 805.36C639.13 795.27 646.54 784.63 655.99 781.12L809.08 724.35C813.91 722.56 819.47 716.38 820.75 711.39L884.19 463.08C886.3 454.81 892.74 443.67 898.86 437.71L957.79 380.29C962.09 376.1 966.9 367.25 968.08 361.36L984.86 277.46C985.69 273.3 983.01 268.17 979.12 266.48L631.36 115.03C623.1 111.43 613.89 102.62 609.93 94.54L590.96 55.82C589.14 52.11 584.06 49.85 580.09 50.98L484.35 78.32C476.72 80.5 464.53 82.43 456.6 82.72L373.2 85.75C367.67 85.95 362.56 83.85 359.15 79.99C355.74 76.12 354.29 70.78 355.17 65.33L362.91 17.63C363.13 16.28 362.93 15.18 362.37 14.6C361.81 14.03 360.71 13.81 359.36 14.01L259.84 28.16C258.66 28.33 258.07 28.66 257.87 28.83C257.88 29.08 258.03 29.75 258.7 30.72L269.59 46.77C272.67 51.31 273.67 56.63 272.41 61.77C271.15 66.9 267.8 71.16 262.98 73.76L208.43 103.13C199.1 108.16 186.6 105.61 179.97 97.33L164.63 78.15C161.85 74.68 155.54 72.96 151.39 74.53L118.3 87.08C114.55 88.51 112.02 93.2 112.91 97.12L121.04 133.13C122.86 141.18 123.11 153.83 121.61 161.94L112.44 211.75C110.79 220.72 103.97 231.54 96.58 236.9L16.12 295.27C14.79 296.24 13.97 297.56 13.82 299.01C13.67 300.45 14.19 301.91 15.29 303.13L91.46 387.4C94.9 391.2 102.63 393.98 107.7 393.25L191.36 381.08C192.7 380.89 194.11 380.79 195.55 380.79M556.1 1015.49C552.18 1015.49 548.34 1014.27 545.0 1011.91L444.73 941.24C435.91 935.01 433.3 922.45 438.92 913.24L503.08 807.94C505.38 804.17 504.76 798.02 501.75 794.78L415.84 702.26C409.83 695.79 404.49 684.28 403.42 675.51L388.63 553.91C387.95 548.26 383.49 540.15 379.1 536.54L277.34 452.95L211.65 399.37C207.35 395.86 198.77 393.49 193.28 394.29L109.62 406.45C100.09 407.84 88.02 403.49 81.56 396.35L5.4 312.08C1.72 308.01 0.0 302.88 0.55 297.62C1.1 292.36 3.84 287.69 8.28 284.47L88.75 226.1C93.35 222.76 98.29 214.92 99.32 209.33L108.49 159.53C109.67 153.14 109.45 142.4 108.02 136.07L99.89 100.06C97.53 89.59 103.54 78.41 113.57 74.6L146.66 62.06C156.2 58.44 168.67 61.84 175.04 69.81L190.39 89.0C192.98 92.24 198.46 93.35 202.1 91.39L256.66 62.01C258.11 61.23 259.1 60.02 259.45 58.59C259.8 57.17 259.48 55.63 258.55 54.27L247.66 38.22C244.37 33.37 243.63 27.97 245.65 23.42C247.67 18.86 252.15 15.78 257.96 14.95L357.48 0.8C363.08 0.0 368.33 1.63 371.9 5.26C375.46 8.9 376.98 14.18 376.08 19.76L368.34 67.47C368.1 68.98 368.39 70.29 369.16 71.16C369.92 72.03 371.19 72.47 372.71 72.42L456.12 69.39C462.9 69.14 474.16 67.36 480.69 65.49L576.42 38.15C586.63 35.24 598.27 40.42 602.94 49.95L621.91 88.67C624.46 93.88 631.36 100.48 636.68 102.8L984.45 254.24C994.07 258.44 1000.0 269.78 997.94 280.08L981.16 363.98C979.44 372.59 973.39 383.71 967.1 389.85L908.17 447.27C903.79 451.53 898.63 460.46 897.12 466.38L833.68 714.7C831.3 724.0 822.72 733.53 813.72 736.86L660.63 793.63C656.36 795.21 652.47 800.8 652.47 805.36L652.47 860.72C652.47 869.26 648.97 881.65 644.5 888.92L572.42 1006.27C569.58 1010.89 565.14 1014.03 559.94 1015.1C558.66 1015.36 557.38 1015.49 556.1 1015.49Z"/><g><title>Guaxupé · Minas Gerais</title><path class="guia" d="M696 692L614 606"/><circle class="pin-halo" cx="696" cy="692" r="27"/><circle class="pin" cx="696" cy="692" r="11"/><text class="pin-txt" x="600" y="618" text-anchor="end">MG</text></g><g><title>Barueri · São Paulo (matriz)</title><path class="guia" d="M691 749L570 826"/><circle class="pin-halo" cx="691" cy="749" r="27"/><circle class="pin" cx="691" cy="749" r="11"/><text class="pin-txt" x="556" y="838" text-anchor="end">SP</text></g><g><title>Centro · Rio de Janeiro</title><path class="guia" d="M785 733L884 794"/><circle class="pin-halo" cx="785" cy="733" r="27"/><circle class="pin" cx="785" cy="733" r="11"/><text class="pin-txt" x="898" y="806" text-anchor="start">RJ</text></g></svg></div>
+      <div class="unids rev">
+        <article class="unid">
+          <span class="unid__tag">Matriz</span>
+          <div>
+            <h3>Barueri · São Paulo</h3>
+            <p>Av. Copacabana, 325 — Sala 501, 5º andar<br>
+               Condomínio Montreal Plaza — Setor 02<br>
+               Dezoito do Forte Empresarial Alphaville — CEP 06472-001</p>
+            <p class="cnpj num">CNPJ 25.231.623/0001-04</p>
+          </div>
+        </article>
+        <article class="unid">
+          <span class="unid__tag unid__tag--fil">Filial</span>
+          <div>
+            <h3>Centro · Rio de Janeiro</h3>
+            <p>Rua Alfândega, 100 — 4º andar<br>Centro — CEP 20070-004</p>
+            <p class="cnpj num">CNPJ 25.231.623/0002-87</p>
+          </div>
+        </article>
+        <article class="unid">
+          <span class="unid__tag unid__tag--fil">Filial</span>
+          <div>
+            <h3>Guaxupé · Minas Gerais</h3>
+            <p>Rua Antônio Abrahão Haddad, 61<br>Bairro Irmão Ricciardi — CEP 37800-000</p>
+            <p class="cnpj num">CNPJ 25.231.623/0003-68</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="sec sec--breu" id="contato">
+  <div class="wrap">
+    <div class="cont">
+      <div class="rev">
+        <div class="regua" aria-hidden="true"></div>
+        <span class="olhal">Contato</span>
+        <h2 class="h-sec">Solicite sua cotação</h2>
+        <p class="lead" style="margin-top:20px">Informe o material, a bitola e o volume estimado. Nosso time
+          comercial responde com preço, prazo e condição de entrega.</p>
+
+        <form class="form" id="form-cotacao" novalidate>
+          <div class="linha2">
+            <div class="campo">
+              <label for="f-nome">Nome</label>
+              <input id="f-nome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome">
+            </div>
+            <div class="campo">
+              <label for="f-empresa">Empresa</label>
+              <input id="f-empresa" name="empresa" type="text" autocomplete="organization" required placeholder="Razão social">
+            </div>
+          </div>
+          <div class="linha2">
+            <div class="campo">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="voce@empresa.com.br">
+            </div>
+            <div class="campo">
+              <label for="f-tel">Telefone</label>
+              <input id="f-tel" name="telefone" type="tel" autocomplete="tel" placeholder="(11) 90000-0000">
+            </div>
+          </div>
+          <div class="linha2">
+            <div class="campo">
+              <label for="f-produto">Produto de interesse</label>
+              <select id="f-produto" name="produto">
+                <option value="">Selecione…</option>
+                <option>Vergalhão de cobre 8,00 mm</option>
+<option>Fio trefilado de cobre 1,45 mm</option>
+<option>Filamentos de cobre 0,25–0,40 mm</option>
+<option>Cordas de cobre</option>
+<option>Barramentos de cobre e latão</option>
+<option>Laminados de cobre, latão e bronze</option>
+<option>Tubos de cobre</option>
+<option>Sucata de cobre moído</option>
+                <option>Outro / não listado</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="f-qtd">Volume estimado</label>
+              <input id="f-qtd" name="quantidade" type="text" placeholder="ex.: 2.000 kg/mês">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="f-msg">Especificação e observações</label>
+            <textarea id="f-msg" name="mensagem" placeholder="Bitola, liga, tolerância, embalagem, prazo desejado, local de entrega…"></textarea>
+          </div>
+          <div class="form__acao">
+            <button class="btn btn--cobre" type="submit">Gerar pedido de cotação</button>
+            <span class="form__nota">Montamos a mensagem para você enviar por e-mail ou WhatsApp.</span>
+          </div>
+        </form>
+
+        <div class="saida" id="saida" hidden aria-live="polite">
+          <h4>Sua solicitação</h4>
+          <pre id="saida-txt"></pre>
+          <div class="saida__acao">
+            <a class="btn btn--cobre btn--peq" id="btn-email" href="#">Enviar por e-mail</a>
+            <a class="btn btn--linha btn--peq" id="btn-zap" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            <button class="btn btn--linha btn--peq" type="button" id="btn-copiar">Copiar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev">
+        <div class="canais">
+          <a class="canal" href="tel:+551121101974">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <div><b>Central de atendimento</b><span>+55 11 2110-1974</span><em>Telefone e WhatsApp</em></div>
+          </a>
+          <a class="canal" href="mailto:contato@alumicondutores.com.br">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            <div><b>E-mail comercial</b><span>contato@alumicondutores.com.br</span></div>
+          </a>
+          <div class="canal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><b>Matriz</b><span>Av. Copacabana, 325 — Sala 501</span>
+              <em>Condomínio Montreal Plaza — Alphaville<br>Barueri/SP — CEP 06472-001</em></div>
+          </div>
+          <a class="canal" href="https://instagram.com/alumimetais" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <div><b>Redes sociais</b><span>@alumimetais</span><em>Instagram e Facebook</em></div>
+          </a>
+        </div>
+
+        <div class="setores">
+          <h3>Fale direto com o setor</h3>
+          <div class="setor"><b>Comercial</b><span class="mails"><a href="mailto:joaorocha@alumimetais.com.br">joaorocha@alumimetais.com.br</a><a href="mailto:vaniasobral@alumimetais.com.br">vaniasobral@alumimetais.com.br</a><a href="mailto:junior@alumimetais.com.br">junior@alumimetais.com.br</a></span></div>
+<div class="setor"><b>Logística</b><span class="mails"><a href="mailto:logistica@alumimetais.com.br">logistica@alumimetais.com.br</a></span></div>
+<div class="setor"><b>Financeiro</b><span class="mails"><a href="mailto:financeiro@alumimetais.com.br">financeiro@alumimetais.com.br</a></span></div>
+<div class="setor"><b>Faturamento</b><span class="mails"><a href="mailto:faturamento@alumimetais.com.br">faturamento@alumimetais.com.br</a></span></div>
+<div class="setor"><b>Crédito e cobrança</b><span class="mails"><a href="mailto:deboradonato@alumimetais.com.br">deboradonato@alumimetais.com.br</a></span></div>
+<div class="setor"><b>Relações com investidores</b><span class="mails"><a href="mailto:ajh@alumimetais.com.br">ajh@alumimetais.com.br</a></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="rod">
+  <div class="wrap">
+    <div class="rod__top">
+      <div>
+        <svg class="logo logo--claro" viewBox="0 0 1000 283.6" role="img" aria-label="Alumi Metais"><path class="lg-word" d="M909.33 0.0L909.33 172.45L859.32 172.45L859.32 62.33L790.58 146.58L788.12 146.58L719.39 62.33L719.39 172.45L670.85 172.45L670.85 0.0L725.79 0.0L790.58 82.77L855.87 0.0L909.33 0.0ZM146.09 103.72L116.28 42.62L86.22 103.72L146.09 103.72M163.58 139.44L68.98 139.44L52.72 172.45L0.0 172.45L89.18 0.0L144.12 0.0L233.3 172.45L179.84 172.45L163.58 139.44ZM952.53 0.0L949.74 0.0L949.74 172.45L1000.0 172.45L1000.0 58.5L952.53 0.0ZM302.54 132.05L302.54 57.88L255.58 0.0L252.28 0.0L252.28 172.45L418.57 172.45L418.57 132.05L302.54 132.05ZM586.54 0.0L583.14 0.0L583.14 87.21C583.14 117.27 566.64 136.73 533.38 136.73C500.12 136.73 483.37 117.27 483.37 87.21L483.37 56.94L437.17 0.0L433.11 0.0L433.11 91.15C433.11 143.63 469.08 178.12 533.38 178.12C597.68 178.12 633.4 143.63 633.4 91.15L633.4 57.76L586.54 0.0Z"/><path class="lg-sub" d="M287.27 215.06L287.27 281.64L282.33 281.64L282.33 222.1L246.47 265.28L246.09 265.28L210.14 222.1L210.14 281.64L205.29 281.64L205.29 215.06L210.71 215.06L246.38 258.05L282.04 215.06L287.27 215.06ZM406.07 276.98L406.07 281.64L343.4 281.64L343.4 215.06L405.12 215.06L405.12 219.63L348.34 219.63L348.34 245.4L397.04 245.4L397.04 250.06L348.34 250.06L348.34 276.98L406.07 276.98ZM516.69 219.53L484.16 219.53L484.16 281.64L479.22 281.64L479.22 219.53L446.79 219.53L446.79 215.06L516.69 215.06L516.69 219.53ZM603.34 257.39L582.23 219.63L561.21 257.39L603.34 257.39M605.81 261.95L558.74 261.95L547.8 281.64L542.28 281.64L579.56 215.06L585.08 215.06L622.36 281.64L616.84 281.64L605.81 261.95ZM668.69 215.06h4.95v66.57h-4.95ZZM794.71 263.09C794.71 274.69 782.72 283.63 760.94 283.63C745.54 283.63 731.75 278.78 723.09 269.37L726.71 265.85C734.88 274.88 746.96 278.97 761.14 278.97C779.49 278.97 789.67 272.41 789.67 263.38C789.67 254.15 778.54 251.58 759.42 249.78C742.21 248.16 725.47 244.55 725.47 231.99C725.47 219.82 741.45 213.07 758.57 213.07C773.02 213.07 784.24 217.73 791.19 224.76L787.29 228.0C780.63 220.87 770.55 217.82 758.76 217.73C745.92 217.63 730.61 222.1 730.61 231.9C730.61 241.12 744.49 243.6 761.14 245.12C781.01 246.83 794.71 250.63 794.71 263.09Z"/></svg>
+        <p class="rod__frase">Entregando qualidade, inovação e excelência para sua empresa.</p>
+        <div class="rod__social">
+          <a href="https://instagram.com/alumimetais" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://facebook.com/alumimetais" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9V7.5c0-.7.3-1 1.1-1H17V3.2A22 22 0 0 0 14.5 3C11.9 3 10.2 4.6 10.2 7.4V9H7.5v3.5h2.7V21h3.6v-8.5h2.7l.5-3.5H14Z"/></svg>
+          </a>
+          <a href="https://wa.me/551121101974" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5 0-.9.2-3-.8s-3.5-3.5-3.6-3.7c-.1-.2-.9-1.2-.9-2.3s.6-1.6.8-1.9c.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.8.9c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#empresa">A empresa</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#capacidades">Capacidades</a></li>
+          <li><a href="#mercados">Mercados atendidos</a></li>
+          <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+          <li><a href="#unidades">Unidades</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="tel:+551121101974" class="num">+55 11 2110-1974</a></li>
+          <li><a href="mailto:contato@alumicondutores.com.br">contato@alumicondutores.com.br</a></li>
+          <li>Av. Copacabana, 325 — Sala 501<br>Alphaville — Barueri/SP<br><span class="num">CEP 06472-001</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rod__fim">
+      <span><b>Alumi Condutores Elétricos Ltda</b> · CNPJ <span class="num">25.231.623/0001-04</span></span>
+      <span>© <span class="num">2026</span> Alumi Metais. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* cabeçalho ganha borda ao rolar */
+  var topo = document.getElementById('topo');
+  var hero = document.querySelector('.hero');
+  var limite = function(){ return Math.max(120, hero.offsetHeight - topo.offsetHeight - 40); };
+  var corte = limite();
+  var onScroll = function(){ topo.classList.toggle('fixo', window.scrollY > corte); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', function(){ corte = limite(); onScroll(); }, {passive:true});
+
+  /* revelação ao rolar */
+  var alvos = document.querySelectorAll('.rev');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    alvos.forEach(function(e){ e.classList.add('vis'); });
+  } else {
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('vis'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    alvos.forEach(function(e){ io.observe(e); });
+  }
+
+  /* card de produto → preenche o formulário */
+  var select = document.getElementById('f-produto');
+  document.querySelectorAll('[data-produto]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = b.getAttribute('data-produto');
+      for (var i=0; i<select.options.length; i++){
+        if (select.options[i].value === v || select.options[i].text === v){ select.selectedIndex = i; break; }
+      }
+      document.getElementById('contato').scrollIntoView({behavior:'smooth', block:'start'});
+      setTimeout(function(){ document.getElementById('f-nome').focus({preventScroll:true}); }, 500);
+    });
+  });
+
+  /* composição da solicitação */
+  var EMAIL = 'contato@alumicondutores.com.br';
+  var ZAP   = '551121101974';
+  var form  = document.getElementById('form-cotacao');
+  var saida = document.getElementById('saida');
+  var pre   = document.getElementById('saida-txt');
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var d = new FormData(form);
+    var v = function(k){ return (d.get(k) || '').toString().trim(); };
+
+    if (!v('nome') || !v('empresa') || !v('email')) {
+      var falta = !v('nome') ? 'f-nome' : (!v('empresa') ? 'f-empresa' : 'f-email');
+      var campo = document.getElementById(falta);
+      campo.focus();
+      pre.textContent = 'Preencha nome, empresa e e-mail para montarmos a solicitação.';
+      saida.hidden = false;
+      return;
+    }
+
+    var l = [];
+    l.push('Solicitação de cotação — Alumi Metais');
+    l.push('');
+    l.push('Empresa: ' + v('empresa'));
+    l.push('Contato: ' + v('nome'));
+    l.push('E-mail: ' + v('email'));
+    if (v('telefone'))    l.push('Telefone: ' + v('telefone'));
+    if (v('produto'))     l.push('Produto: ' + v('produto'));
+    if (v('quantidade'))  l.push('Volume estimado: ' + v('quantidade'));
+    if (v('mensagem'))    { l.push(''); l.push('Especificação:'); l.push(v('mensagem')); }
+
+    var texto = l.join('\n');
+    pre.textContent = texto;
+    saida.hidden = false;
+
+    var assunto = 'Cotação — ' + v('empresa') + (v('produto') ? ' — ' + v('produto') : '');
+    document.getElementById('btn-email').href =
+      'mailto:' + EMAIL + '?subject=' + encodeURIComponent(assunto) + '&body=' + encodeURIComponent(texto);
+    document.getElementById('btn-zap').href =
+      'https://wa.me/' + ZAP + '?text=' + encodeURIComponent(texto);
+
+    saida.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  document.getElementById('btn-copiar').addEventListener('click', function(){
+    var b = this, txt = pre.textContent, ok = function(){
+      var antes = b.textContent; b.textContent = 'Copiado';
+      setTimeout(function(){ b.textContent = antes; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(ok, function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok(); } catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+</body>
+</html>
