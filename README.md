@@ -1,5 +1,7 @@
 # Site Alumi Metais
 
+![Alumi Metais — insumos de cobre para a indústria](assets/og-image.jpg)
+
 **No ar:** <https://guiofsaints.github.io/alumi-site/>
 
 Site institucional de uma página da **Alumi Condutores Elétricos Ltda** (marca *Alumi Metais*).
@@ -77,6 +79,20 @@ python -m http.server 8000
 Abra `http://localhost:8000/tools/og.built.html` num viewport de **1200×630 com DPR 2**, capture a
 tela (2400×1260) e reduza para 1200×630 em JPEG de qualidade ~88. `tools/og.built.html` é gerado —
 edite `tools/og.html`.
+
+### Preview do repositório no GitHub
+
+A página do repositório em `github.com` **não** lê a `og:image` do site: ela tem a própria
+`og:image`, gerada automaticamente pelo GitHub (`opengraph.githubassets.com`) com nome, descrição e
+estatísticas. São duas previews independentes.
+
+Para o repositório exibir o cartão da Alumi ao ser compartilhado:
+
+**Settings → General → Social preview → Upload an image** e escolha
+`tools/github-social-preview.jpg` (1280×640, 66 KB — o tamanho recomendado pelo GitHub).
+
+Não há endpoint público na API REST para isso; o upload é só pela interface. O arquivo é gerado do
+mesmo `tools/og.html`, na variante `tools/og.github.built.html`.
 
 ## Deploy
 

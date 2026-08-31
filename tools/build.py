@@ -328,11 +328,21 @@ open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8", newline="\n").wri
     '</urlset>\n')
 print("robots.txt + sitemap.xml")
 
-# ---------------------------------------------------------------- fonte da imagem social
-# og.html é o cartão 1200x630; o build só injeta o logotipo vetorial nele.
-# A captura em si é manual — ver README, "Imagem de compartilhamento".
+# ---------------------------------------------------------------- fontes das imagens sociais
+# og.html é o cartão; o build injeta o logotipo vetorial e as dimensões de cada
+# variante. A captura em si é manual — ver README, "Imagem de compartilhamento".
+#
+#   og.built.html         1200x630 -> assets/og-image.jpg      (og:image do site)
+#   og.github.built.html  1280x640 -> tools/github-social-preview.jpg
+#                                     (upload manual em Settings > Social preview;
+#                                      o GitHub não expõe API para isso)
 og = open(os.path.join(HERE, "og.html"), encoding="utf-8").read()
-assert "{{LOGO}}" in og, "placeholder {{LOGO}} ausente em tools/og.html"
-open(os.path.join(HERE, "og.built.html"), "w", encoding="utf-8").write(
-    og.replace("{{LOGO}}", logo_svg()))
-print("tools/og.built.html (fonte de assets/og-image.jpg)")
+for ph in ("{{LOGO}}", "{{TAMANHO}}"):
+    assert ph in og, f"placeholder {ph} ausente em tools/og.html"
+
+for arq, (w, h) in {"og.built.html": (1200, 630),
+                    "og.github.built.html": (1280, 640)}.items():
+    open(os.path.join(HERE, arq), "w", encoding="utf-8").write(
+        og.replace("{{LOGO}}", logo_svg())
+          .replace("{{TAMANHO}}", f"<style>:root{{--og-w:{w}px;--og-h:{h}px}}</style>"))
+    print(f"tools/{arq}  ({w}x{h})")

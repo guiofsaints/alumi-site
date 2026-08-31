@@ -13,8 +13,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
+  /* dimensões sobrescritas por tools/build.py ao gerar cada variante */
+  :root{--og-w:1200px;--og-h:630px}
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{width:1200px;height:630px;overflow:hidden}
+  html,body{width:var(--og-w);height:var(--og-h);overflow:hidden}
   body{
     position:relative;background:#0B0908;color:#F2E8E2;
     font-family:"Open Sans",sans-serif;
@@ -63,6 +65,8 @@
   }
   .rodape b{color:#F2E8E2;font-weight:600}
 </style>
+<!-- precisa vir DEPOIS do bloco acima: mesma especificidade, quem vem por último vence -->
+{{TAMANHO}}
 </head>
 <body>
   <div class="bg"><img src="../assets/img/hero.webp" alt=""></div>
