@@ -1,5 +1,7 @@
 # Site Alumi Metais
 
+**No ar:** <https://guiofsaints.github.io/alumi-site/>
+
 Site institucional de uma página da **Alumi Condutores Elétricos Ltda** (marca *Alumi Metais*).
 
 HTML estático, sem build e sem dependências de runtime. Todo o conteúdo, a paleta, a tipografia
@@ -46,7 +48,11 @@ Site estático puro — funciona em qualquer host. Sem etapa de build.
 
 - **Vercel** — importe o repositório; o `vercel.json` já está configurado. Framework: *Other*,
   build command vazio, output directory: raiz.
-- **GitHub Pages** — Settings → Pages → Deploy from a branch → `main` / `root`.
+- **GitHub Pages** — já ativo neste repositório (`main` / `root`, HTTPS forçado). Cada push em
+  `main` republica automaticamente.
+
+Para apontar um domínio próprio (`alumicondutores.com.br`) para o Pages, crie um `CNAME` na raiz
+com o domínio e configure o DNS conforme a documentação do GitHub Pages.
 
 ## Pendências antes de ir ao ar
 
